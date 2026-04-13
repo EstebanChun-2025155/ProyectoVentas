@@ -1,0 +1,63 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" th:href="@{/styles/home.css}">
+    </head>
+
+    <body>
+
+    <div class="navbar">
+
+        <h2>Sistema de Ventas</h2>
+
+        <nav class="menu">
+            <a th:href="@{/clientes}">Clientes</a>
+            <a th:href="@{/detalleVenta}">Detalle de Ventas</a>
+            <a th:href="@{/productos}">Productos</a>
+            <a th:href="@{/usuarios}">Usuarios</a>
+            <a th:href="@{/ventas}">Ventas</a>
+        </nav>
+
+        <div class="user-info">
+            <form th:action="@{/logout}" method="post">
+                <button class="logout-btn">Cerrar sesión</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="dashboard">
+
+        <h1>Panel de Control</h1>
+
+        <div class="crud-grid">
+
+            <a th:href="@{/clientes}" class="crud-card">
+                Clientes
+            </a>
+
+            <a th:href="@{/detalleVenta}" class="crud-card">
+                Detalle de Ventas
+            </a>
+
+            <a th:href="@{/productos}" class="crud-card">
+                Productos
+            </a>
+
+            <a th:href="@{/usuarios}" class="crud-card">
+                Usuarios
+            </a>
+
+            <a th:href="@{/ventas}" class="crud-card">
+                Ventas
+            </a>
+
+        </div>
+
+    </div>
+
+    </body>
+    </html>

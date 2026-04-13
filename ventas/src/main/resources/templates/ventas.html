@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ventas</title>
+    <link rel="stylesheet" th:href="@{/styles/ventas.css}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Sistema de Ventas</h2>
+
+    <div class="nav-actions">
+        <a th:href="@{/home}">Home</a>
+        <a href="#">Agregar</a>
+        <a href="#">Eliminar</a>
+        <a href="#">Buscar</a>
+        <a href="#">Editar</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h1>Ventas</h1>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar venta por ID">
+        <button>Buscar</button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Cliente</th>
+            <th>Usuario</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2026-03-01</td>
+            <td>Q7,800.00</td>
+            <td>Activa</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2026-03-02</td>
+            <td>Q300.00</td>
+            <td>Activa</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2026-03-03</td>
+            <td>Q1,800.00</td>
+            <td>Activa</td>
+            <td>3</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>2026-03-04</td>
+            <td>Q150.00</td>
+            <td>Anulada</td>
+            <td>4</td>
+            <td>4</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
