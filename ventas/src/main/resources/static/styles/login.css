@@ -72,14 +72,14 @@ body{
 }
 
 .button1,
-.button2 {
+.button2
+a.button2{
     padding: 10px;
     border-radius: 8px;
     border: none;
-    background-color: #252525;
-    color: white;
     cursor: pointer;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .button1 {
