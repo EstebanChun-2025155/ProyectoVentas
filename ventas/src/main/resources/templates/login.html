@@ -48,9 +48,10 @@
                 Login
             </button>
 
-            <button type="button" class="button2">
-                Sign Up
-            </button>
+            <a th:href="@{/registro}" class="button2">
+                Register
+            </a>
+
         </div>
 
         <p th:if="${error}" th:text="${error}"></p>
