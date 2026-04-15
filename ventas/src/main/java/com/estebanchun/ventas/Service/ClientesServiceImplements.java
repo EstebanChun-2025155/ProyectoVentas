@@ -34,7 +34,7 @@ public class ClientesServiceImplements implements ClientesService {
     }
 
     @Override
-    public void deleteClientes(Integer id) {
-
+    public void eliminar(int id) {
+        repo.deleteById(id);
     }
 }

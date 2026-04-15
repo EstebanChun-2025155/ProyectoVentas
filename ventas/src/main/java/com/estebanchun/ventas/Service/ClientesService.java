@@ -11,5 +11,5 @@ public interface ClientesService {
     Clientes getClientesById(Integer id);
     Clientes saveClientes(Clientes clientes) throws RuntimeException;
     Clientes updateClientes(Integer id, Clientes clientes);
-    void deleteClientes(Integer id);
+    void eliminar(int id);
 }

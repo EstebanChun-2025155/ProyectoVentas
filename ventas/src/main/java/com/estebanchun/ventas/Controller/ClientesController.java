@@ -21,4 +21,10 @@ public class ClientesController {
 
         return "clientes";
     }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable int id) {
+        clientesService.eliminar(id);
+        return "redirect:/clientes";
+    }
 }

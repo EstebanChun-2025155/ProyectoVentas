@@ -13,7 +13,6 @@
     <div class="nav-actions">
         <a th:href="@{/home}">Home</a>
         <a href="#">Agregar</a>
-        <a href="#">Eliminar</a>
         <a href="#">Buscar</a>
         <a href="#">Editar</a>
     </div>
@@ -32,9 +31,11 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre Completo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
             <th>Dirección</th>
             <th>Estado</th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
@@ -45,6 +46,13 @@
             <td th:text="${cliente.apellidoCliente}"></td>
             <td th:text="${cliente.direccion}"></td>
             <td th:text="${cliente.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
+            <td>
+                <form th:action="@{/eliminar/{id}(id=${cliente.dpiCliente})}" method="post">
+                    <button class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
