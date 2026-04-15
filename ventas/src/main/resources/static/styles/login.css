@@ -2,12 +2,12 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    background: linear-gradient(135deg,#1f2937,#111827);
-    color: white;
+    background: linear-gradient(135deg,#0f172a,#020617);
+    color: #e5e7eb;
 }
 
 .login-container {
@@ -17,42 +17,46 @@ body{
     height: 100vh;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 2em;
     width: 320px;
-    background-color: #171717;
+    background-color: #111827; /* negro azulado */
     border-radius: 25px;
     transition: 0.3s ease-in-out;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 .form:hover {
     transform: scale(1.03);
-    border: 1px solid #000;
 }
 
+/* TITULO */
 #heading {
     text-align: center;
     font-size: 1.6em;
     margin-bottom: 10px;
+    color: #93c5fd; /* azul pálido */
 }
 
+/* INPUTS */
 .field {
     display: flex;
     align-items: center;
     gap: 10px;
     border-radius: 25px;
     padding: 0.8em;
-    background-color: #1f1f1f;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    background-color: #1e293b; /* azul oscuro */
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.7);
 }
 
 .input-icon {
     height: 1.3em;
     width: 1.3em;
-    fill: white;
+    fill: #93c5fd; /* azul pálido */
 }
 
 .input-field {
@@ -60,10 +64,15 @@ body{
     border: none;
     outline: none;
     width: 100%;
-    color: #d3d3d3;
+    color: #e2e8f0;
     font-size: 0.95em;
 }
 
+.input-field::placeholder{
+    color: #94a3b8; /* gris azulado */
+}
+
+/* BOTONES */
 .form .btn {
     display: flex;
     justify-content: center;
@@ -72,21 +81,34 @@ body{
 }
 
 .button1,
-.button2
-a.button2{
+.button2{
     padding: 10px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     transition: 0.3s;
     text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
+/* BOTÓN LOGIN (beige claro) */
 .button1 {
+    background-color: #f5f5dc; /* beige */
+    color: #1e293b;
     font-weight: bold;
 }
 
-.button1:hover,
+.button1:hover {
+    background-color: #e8e4c9;
+}
+
+/* BOTÓN REGISTER (beige más suave) */
+.button2 {
+    background-color: #eae7dc;
+    color: #1e293b;
+}
+
 .button2:hover {
-    background-color: black;
+    background-color: #d6d3c4;
 }

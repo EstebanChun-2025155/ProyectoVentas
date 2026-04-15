@@ -6,7 +6,7 @@
 }
 
 body{
-    background: linear-gradient(135deg,#1f2937,#111827);
+    background: linear-gradient(135deg,#020617,#111827);
     color: #e5e7eb;
 }
 
@@ -17,7 +17,8 @@ body{
     align-items: center;
     padding: 15px 40px;
     background: #111827;
-    border-bottom: 2px solid #60a5fa;
+    border-bottom: 1px solid #334155;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .navbar h2 {
@@ -39,8 +40,8 @@ body{
 }
 
 .nav-actions a:hover {
-    background: #3b82f6;
-    color: white;
+    background: #1e293b;
+    color: #93c5fd;
 }
 
 
@@ -102,6 +103,7 @@ body{
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border: 1px solid #374151;
 }
 
 
@@ -128,7 +130,8 @@ body{
 }
 
 .data-table tbody tr:hover {
-    background: #374151;
+    background: #334155;
+    transform: scale(1.01);
 }
 
 
@@ -139,6 +142,8 @@ body{
     cursor: pointer;
     font-weight: bold;
     transition: 0.25s;
+    display:inline-block;
+    text-align:center;
 }
 
 .btn-primary {
@@ -152,10 +157,10 @@ body{
 }
 
 .btn-danger {
-    background: #ef4444;
-    color: white;
+     background:#ef4444;
+     color:white
 }
 
 .btn-danger:hover {
-    background: #dc2626;
+    background:#dc2626;
 }
