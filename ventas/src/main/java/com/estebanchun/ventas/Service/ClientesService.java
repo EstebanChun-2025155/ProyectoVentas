@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public interface ClientesService {
-    List<Clientes> getAllClientes();
+    List<Clientes> listar();
     Clientes getClientesById(Integer id);
     Clientes saveClientes(Clientes clientes) throws RuntimeException;
     Clientes updateClientes(Integer id, Clientes clientes);
