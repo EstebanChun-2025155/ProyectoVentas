@@ -2,27 +2,30 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* FONDO GENERAL */
 body{
-    background: linear-gradient(135deg,#1f2937,#111827);
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
+    background: linear-gradient(135deg,#1e293b,#020617);
+    color: #e5e7eb;
 }
 
-
-/* Menú */
+/* NAVBAR */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 40px;
-    background: #111827;
-    border-bottom: 2px solid #3b82f6;
+    background: #020617; /* negro profundo */
+    border-bottom: 2px solid #93c5fd; /* azul pálido */
 }
 
+.navbar h2{
+    color: #f5f5dc; /* beige */
+}
+
+/* MENÚ */
 .menu {
     display: flex;
     gap: 20px;
@@ -30,70 +33,80 @@ body{
 }
 
 .menu a {
-    color: white;
+    color: #cbd5f5; /* azul claro */
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: 0.2s;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: 0.25s;
 }
 
 .menu a:hover {
-    background: #3b82f6;
+    background: #1e293b;
+    color: #f5f5dc;
 }
 
+/* USUARIO */
 .user-info{
     display:flex;
     align-items:center;
     gap:15px;
+    color: #94a3b8;
 }
 
+/* BOTÓN LOGOUT */
 .logout-btn{
-    padding:8px 12px;
+    padding:8px 14px;
     border:none;
-    border-radius:5px;
-    background:#ef4444;
-    color:white;
+    border-radius:8px;
+    background:#f5f5dc; /* beige */
+    color:#1e293b;
     cursor:pointer;
+    transition:0.3s;
+    font-weight: 500;
 }
 
 .logout-btn:hover{
-    background:#dc2626;
+    background:#e8e4c9;
 }
 
-
-/* Tablero */
+/* DASHBOARD */
 .dashboard{
     padding:40px;
-    display: block;
 }
 
 .dashboard h1{
     text-align:center;
     margin-bottom:40px;
+    color: #f5f5dc;
 }
 
-
-/* Tarjetas */
+/* GRID */
 .crud-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:25px;
 }
 
+/* TARJETAS */
 .crud-card{
-    background:#1f2937;
+    background:#111827; /* negro azulado */
     padding:40px;
     text-align:center;
-    border-radius:12px;
-    font-size:20px;
-    font-weight:bold;
+    border-radius:16px;
+    font-size:18px;
+    font-weight:600;
     text-decoration:none;
-    color:white;
-    transition:0.25s;
+    color:#e2e8f0;
+    transition:0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border: 1px solid #1e293b;
 }
 
+/* EFECTO HOVER */
 .crud-card:hover{
-    background:#3b82f6;
-    transform:scale(1.05);
+    background:#1e293b;
+    transform:translateY(-5px) scale(1.03);
+    color:#f5f5dc;
+    border: 1px solid #93c5fd;
 }
