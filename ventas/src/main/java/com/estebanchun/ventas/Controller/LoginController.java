@@ -1,6 +1,9 @@
 package com.estebanchun.ventas.Controller;
 
+import com.estebanchun.ventas.Entity.Login;
+import com.estebanchun.ventas.Service.LoginService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,30 +12,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
-    @GetMapping("/")
-    public String inicio(){
-        return "redirect:/login";
-    }
+    @Autowired
+    private LoginService service;
 
     @GetMapping("/login")
-    public String mostrarLogin() {
+    public String login() {
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password,
-                        HttpSession session, Model model){
+    public String validar(@RequestParam String usuario,
+                          @RequestParam String password,
+                          Model model, HttpSession session) {
 
-        String userCorrecto = "Ventas";
-        String passCorrecto = "1234";
+        Login u = service.login(usuario, password);
 
-        if (username.equals(userCorrecto) && password.equals(passCorrecto)){
-            session.setAttribute("usuarioLogueado", username);
+        if (u != null) {
+            session.setAttribute("usuarioLogueado", u);
             return "redirect:/home";
-        }else {
-            model.addAttribute("error", "usuario y contrasena incorrecta");
+        } else {
+            model.addAttribute("error", "Credenciales incorrectas");
             return "login";
         }
     }
-
 }
