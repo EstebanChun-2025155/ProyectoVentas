@@ -4,7 +4,7 @@ use DB_Ventas_in5cm;
 
 create table Username(
 	idUsuario int auto_increment not null primary key,
-    usuario varchar(50),
+    usuario varchar(50) unique,
     contrasena varchar(30)
 );
 
@@ -57,6 +57,7 @@ create table detalle_venta(
 
 
 -- PROCEDIMIENTOS ALMACENADOS --
+
 		-- USUARIOS --
 -- create --
 Delimiter $$
@@ -281,9 +282,8 @@ Delimiter $$
 		delete from detalle_venta where codigo_detalle_venta = p_codigo_detalle_venta;
         select row_count() as filas_afectadas;
     end $$
-Delimiter ;\
+Delimiter ;
 
-	-- USERNAME --
 insert into Username (usuario, contrasena) values ('Juan', '123');
 insert into Username (usuario, contrasena) values ('Pedro', '123');
 insert into Username (usuario, contrasena) values ('Luis', '123');
