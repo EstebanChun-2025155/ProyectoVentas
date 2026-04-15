@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public interface ProductosService {
-    List<Productos> getAllProductos();
+    List<Productos> listar();
     Productos getProductosById(Integer id);
     Productos saveProducto(Productos productos) throws RuntimeException;
     Productos updateProducto(Integer id, Productos productos);

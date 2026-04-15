@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
-@Table(name = "DetalleVenta")
+@Table(name = "detalle_venta")
 public class DetalleVentas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

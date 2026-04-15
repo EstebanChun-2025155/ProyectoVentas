@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public interface UsuarioService {
-    List<Usuarios> getAllUsuarios();
+    List<Usuarios> listar();
     Usuarios getUsuarioById(Integer id);
     Usuarios saveUsuario(Usuarios usuarios) throws RuntimeException;
     Usuarios updateUsuario(Integer id, Usuarios usuarios);
