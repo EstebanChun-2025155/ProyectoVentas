@@ -40,33 +40,12 @@
         </thead>
 
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Laptop</td>
-            <td>Q7,500.00</td>
-            <td>10</td>
-            <td>Activo</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Mouse</td>
-            <td>Q150.00</td>
-            <td>50</td>
-            <td>Activo</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Teclado</td>
-            <td>Q300.00</td>
-            <td>30</td>
-            <td>Activo</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Monitor</td>
-            <td>Q1800.00</td>
-            <td>15</td>
-            <td>Activo</td>
+        <tr th:each="producto  : ${productos}">
+            <td th:text="${producto.codigoProducto}"></td>
+            <td th:text="${producto.nombreProducto}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.stock}"></td>
+            <td th:text="${producto.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
         </tr>
         </tbody>
     </table>

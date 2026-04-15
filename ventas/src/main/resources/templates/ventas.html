@@ -41,37 +41,13 @@
         </thead>
 
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>2026-03-01</td>
-            <td>Q7,800.00</td>
-            <td>Activa</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2026-03-02</td>
-            <td>Q300.00</td>
-            <td>Activa</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2026-03-03</td>
-            <td>Q1,800.00</td>
-            <td>Activa</td>
-            <td>3</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>2026-03-04</td>
-            <td>Q150.00</td>
-            <td>Anulada</td>
-            <td>4</td>
-            <td>4</td>
+        <tr th:each="venta : ${ventas}">
+            <td th:text="${venta.codigoVenta}"></td>
+            <td th:text="${venta.fechaVenta}"></td>
+            <td th:text="${venta.total}"></td>
+            <td th:text="${venta.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
+            <td th:text="${venta.clientesDpiCliente }"></td>
+            <td th:text="${venta.usuarioCodigoUsuario }"></td>
         </tr>
         </tbody>
     </table>

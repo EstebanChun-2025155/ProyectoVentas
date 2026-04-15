@@ -35,43 +35,19 @@
             <th>Cantidad</th>
             <th>Precio Unitario</th>
             <th>Subtotal</th>
-            <th>Producto</th>
-            <th>Venta</th>
+            <th>Codigo Producto</th>
+            <th>Codigo Venta</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>Q7,500.00</td>
-            <td>Q7,500.00</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>Q150.00</td>
-            <td>Q300.00</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3</td>
-            <td>Q1800.00</td>
-            <td>Q1800.00</td>
-            <td>4</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>4</td>
-            <td>Q150.00</td>
-            <td>Q150.00</td>
-            <td>2</td>
-            <td>1</td>
+        <tr th:each="item  : ${detalleVenta}">
+            <td th:text="${item.codigoDetalleVenta}"></td>
+            <td th:text="${item.cantidad}"></td>
+            <td th:text="${item.precioUnitario}"></td>
+            <td th:text="${item.subtotal}"></td>
+            <td th:text="${item.productosCodigoProducto}"></td>
+            <td th:text="${item.ventasCodigoVenta}"></td>
         </tr>
         </tbody>
     </table>

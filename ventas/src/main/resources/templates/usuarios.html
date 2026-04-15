@@ -40,33 +40,12 @@
         </thead>
 
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Juan</td>
-            <td>juan@mail.com</td>
-            <td>Admin</td>
-            <td>Activo</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Pedro</td>
-            <td>pedro@mail.com</td>
-            <td>Vendedor</td>
-            <td>Activo</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Luis</td>
-            <td>luis@mail.com</td>
-            <td>Vendedor</td>
-            <td>Inactivo</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Domingo</td>
-            <td>domingo@mail.com</td>
-            <td>Vendedor</td>
-            <td>Inactivo</td>
+        <tr th:each="usuario  : ${usuarios}">
+            <td th:text="${usuario.codigoUsuario}"></td>
+            <td th:text="${usuario.username}"></td>
+            <td th:text="${usuario.email}"></td>
+            <td th:text="${usuario.rol}"></td>
+            <td th:text="${usuario.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
         </tr>
         </tbody>
     </table>
