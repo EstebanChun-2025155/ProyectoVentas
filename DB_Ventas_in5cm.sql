@@ -2,6 +2,12 @@ drop database if exists DB_Ventas_in5cm;
 create database DB_Ventas_in5cm;
 use DB_Ventas_in5cm;
 
+create table Username(
+	idUsuario int auto_increment not null primary key,
+    usuario varchar(50),
+    contrasena varchar(30)
+);
+
 create table Usuarios(
 	codigo_usuario int auto_increment not null primary key,
     username varchar(45) not null,
@@ -51,7 +57,6 @@ create table detalle_venta(
 
 
 -- PROCEDIMIENTOS ALMACENADOS --
-
 		-- USUARIOS --
 -- create --
 Delimiter $$
@@ -276,7 +281,13 @@ Delimiter $$
 		delete from detalle_venta where codigo_detalle_venta = p_codigo_detalle_venta;
         select row_count() as filas_afectadas;
     end $$
-Delimiter ;
+Delimiter ;\
+
+	-- USERNAME --
+insert into Username (usuario, contrasena) values ('Juan', '123');
+insert into Username (usuario, contrasena) values ('Pedro', '123');
+insert into Username (usuario, contrasena) values ('Luis', '123');
+insert into Username (usuario, contrasena) values ('Victor', '123');
 
 	-- REGISTROS USUARIOS --
 call sp_Usuarios_create('Juan','123','juan@mail.com','Admin',1);
