@@ -21,10 +21,21 @@
         </nav>
 
         <div class="user-info">
+            <span th:text="${session.usuarioLogueado.username}"></span>
+
+            <img th:src="${session.usuarioLogueado.rol == 'ADMIN'} ?
+                  @{/images/Admin.png} :
+                  @{/images/user.png}"
+                 class="profile-pic">
+        </div>
+
+        <div class="user-info">
             <form th:action="@{/logout}" method="post">
                 <button class="logout-btn">Cerrar sesión</button>
             </form>
         </div>
+
+
 
     </div>
 
