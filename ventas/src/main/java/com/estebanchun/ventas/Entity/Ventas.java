@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Ventas")
@@ -18,16 +18,15 @@ public class Ventas {
     @Column(name = "codigo_venta")
     private Integer codigoVenta;
 
-    @NotNull(message = "La fecha no puede ser nula")
     @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "La fecha es obligatoria")
     @Column(name = "fecha_venta")
-    private Date fechaVenta;
+    private LocalDate fechaVenta;
 
     @NotNull(message = "Los campos no pueden estar vacios")
     @Positive(message = "El precio debe ser mayor a 0")
     @Column(name = "total")
-    private Integer total;
+    private Double  total;
 
     @NotNull(message = "Los campos no pueden estar vacios")
     @Min(value = 0, message = "Para estado inactivo 0")
@@ -53,19 +52,19 @@ public class Ventas {
         this.codigoVenta = codigoVenta;
     }
 
-    public Date getFechaVenta() {
+    public LocalDate getFechaVenta() {
         return fechaVenta;
     }
 
-    public void setFechaVenta(Date fechaVenta) {
+    public void setFechaVenta(LocalDate fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 
-    public Integer getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
