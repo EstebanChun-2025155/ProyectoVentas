@@ -40,7 +40,7 @@ create table Ventas(
     estado int not null,
     clientes_dpi_cliente int not null,
     Usuario_codigo_usuario int not null,
-    foreign key (clientes_dpi_cliente) references Clientes(dpi_cliente),
+    foreign key (clientes_dpi_cliente) references Clientes(dpi_cliente) on delete cascade,
     foreign key ( Usuario_codigo_usuario) references Usuarios(codigo_usuario)
 );
 
