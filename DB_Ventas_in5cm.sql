@@ -2,12 +2,6 @@ drop database if exists DB_Ventas_in5cm;
 create database DB_Ventas_in5cm;
 use DB_Ventas_in5cm;
 
-create table Username(
-	idUsuario int auto_increment not null primary key,
-    usuario varchar(50) unique,
-    contrasena varchar(30)
-);
-
 create table Usuarios(
 	codigo_usuario int auto_increment not null primary key,
     username varchar(45) not null,
@@ -284,19 +278,14 @@ Delimiter $$
     end $$
 Delimiter ;
 
-insert into Username (usuario, contrasena) values ('Juan', '123');
-insert into Username (usuario, contrasena) values ('Pedro', '123');
-insert into Username (usuario, contrasena) values ('Luis', '123');
-insert into Username (usuario, contrasena) values ('Victor', '123');
-
 	-- REGISTROS USUARIOS --
-call sp_Usuarios_create('Juan','123','juan@mail.com','Admin',1);
-call sp_Usuarios_create('Pedro','123','pedro@mail.com','Vendedor',1);
-call sp_Usuarios_create('Luis','123','luis@mail.com','Vendedor',0);
-call sp_Usuarios_create('Domingo','123','domingo@mail.com','Vendedor',1);
-call sp_Usuarios_create('Anderson','123','anderson@mail.com','Vendedor',0);
-call sp_Usuarios_create('Victor','123','victor@mail.com','Supervisor',1);
-call sp_Usuarios_create('Marian','123','marian@mail.com','Supervisor',1);       
+call sp_Usuarios_create('admin','123','admin@mail.com','ADMIN',1);
+call sp_Usuarios_create('Pedro','123','pedro@mail.com','USER',1);
+call sp_Usuarios_create('Luis','123','luis@mail.com','USER',0);
+call sp_Usuarios_create('Domingo','123','domingo@mail.com','USER',1);
+call sp_Usuarios_create('Anderson','123','anderson@mail.com','USER',0);
+call sp_Usuarios_create('Victor','123','victor@mail.com','USER',1);
+call sp_Usuarios_create('Marian','123','marian@mail.com','USER',1);     
         
 	-- REGISTROS PRODUCTOS --
 call sp_Productos_create('Laptop', 7500.00, 10, 1);
