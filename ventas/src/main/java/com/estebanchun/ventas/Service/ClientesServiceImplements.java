@@ -20,17 +20,24 @@ public class ClientesServiceImplements implements ClientesService {
 
     @Override
     public Clientes getClientesById(Integer id) {
-        return null;
+        return repo.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
 
     @Override
-    public Clientes saveClientes(Clientes clientes) throws RuntimeException {
-        return null;
+    public Clientes saveClientes(Clientes clientes) {
+        return repo.save(clientes);
     }
 
     @Override
     public Clientes updateClientes(Integer id, Clientes clientes) {
-        return null;
+        Clientes existente = repo.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        existente.setNombreCliente(clientes.getNombreCliente());
+        existente.setApellidoCliente(clientes.getApellidoCliente());
+        existente.setDireccion(clientes.getDireccion());
+        existente.setEstado(clientes.getEstado());
+
+        return repo.save(existente);
     }
 
     @Override

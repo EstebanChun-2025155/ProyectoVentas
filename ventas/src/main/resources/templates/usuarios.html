@@ -12,10 +12,9 @@
 
     <div class="nav-actions">
         <a th:href="@{/home}">Home</a>
-        <a href="#">Agregar</a>
-        <a href="#">Eliminar</a>
-        <a href="#">Buscar</a>
-        <a href="#">Editar</a>
+        <a th:href="@{/usuarios/nuevo}">
+            Agregar
+        </a>
     </div>
 </div>
 
@@ -36,20 +35,36 @@
             <th>Email</th>
             <th>Rol</th>
             <th>Estado</th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="usuario  : ${usuarios}">
+        <tr th:each="usuario : ${usuarios}">
             <td th:text="${usuario.codigoUsuario}"></td>
             <td th:text="${usuario.username}"></td>
             <td th:text="${usuario.email}"></td>
             <td th:text="${usuario.rol}"></td>
             <td th:text="${usuario.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
+            <td>
+                <div class="acciones">
+
+                    <a th:href="@{/usuarios/editar/{id}(id=${usuario.codigoUsuario})}"
+                       class="btn btn-edit">
+                        Editar
+                    </a>
+
+                    <form th:action="@{/usuarios/eliminar/{id}(id=${usuario.codigoUsuario})}"
+                          method="post">
+                        <button class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </form>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
-
 </div>
 
 </body>

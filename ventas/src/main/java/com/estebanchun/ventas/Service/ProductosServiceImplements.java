@@ -19,21 +19,28 @@ public class ProductosServiceImplements implements ProductosService{
 
     @Override
     public Productos getProductosById(Integer id) {
-        return null;
+         return repo.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
     }
 
     @Override
     public Productos saveProducto(Productos productos) throws RuntimeException {
-        return null;
+        return repo.save(productos);
     }
 
     @Override
     public Productos updateProducto(Integer id, Productos productos) {
-        return null;
+        Productos existente = repo.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+
+        existente.setNombreProducto(productos.getNombreProducto());
+        existente.setPrecio(productos.getPrecio());
+        existente.setStock(productos.getStock());
+        existente.setEstado(productos.getEstado());
+
+        return repo.save(existente);
     }
 
     @Override
-    public void deleteProducto(Integer id) {
-
+    public void eliminar(int id) {
+        repo.deleteById(id);
     }
 }

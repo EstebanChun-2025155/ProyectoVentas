@@ -22,9 +22,34 @@ public class ClientesController {
         return "clientes";
     }
 
-    @GetMapping("/eliminar/{id}")
+    @PostMapping("/eliminar/{id}")
     public String eliminar(@PathVariable int id) {
         clientesService.eliminar(id);
+        return "redirect:/clientes";
+    }
+
+    @GetMapping("/clientes/nuevo")
+    public String mostrarFormulario(Model model) {
+        model.addAttribute("cliente", new Clientes());
+        return "formClientes";
+    }
+
+    @PostMapping("/clientes/guardar")
+    public String guardar(@ModelAttribute Clientes cliente) {
+        clientesService.saveClientes(cliente);
+        return "redirect:/clientes";
+    }
+
+    @GetMapping("/clientes/editar/{id}")
+    public String editar(@PathVariable int id, Model model) {
+        Clientes cliente = clientesService.getClientesById(id);
+        model.addAttribute("cliente", cliente);
+        return "formClientes";
+    }
+
+    @PostMapping("/clientes/actualizar/{id}")
+    public String actualizar(@PathVariable int id, @ModelAttribute Clientes cliente) {
+        clientesService.updateClientes(id, cliente);
         return "redirect:/clientes";
     }
 }

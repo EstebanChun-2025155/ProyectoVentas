@@ -12,10 +12,9 @@
 
     <div class="nav-actions">
         <a th:href="@{/home}">Home</a>
-        <a href="#">Agregar</a>
-        <a href="#">Eliminar</a>
-        <a href="#">Buscar</a>
-        <a href="#">Editar</a>
+        <a th:href="@{/ventas/nuevo}">
+            Agregar
+        </a>
     </div>
 </div>
 
@@ -37,6 +36,7 @@
             <th>Estado</th>
             <th>Cliente</th>
             <th>Usuario</th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
@@ -46,12 +46,28 @@
             <td th:text="${venta.fechaVenta}"></td>
             <td th:text="${venta.total}"></td>
             <td th:text="${venta.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
-            <td th:text="${venta.clientesDpiCliente }"></td>
-            <td th:text="${venta.usuarioCodigoUsuario }"></td>
+            <td th:text="${venta.clientesDpiCliente}"></td>
+            <td th:text="${venta.usuarioCodigoUsuario}"></td>
+            <td>
+                <div class="acciones">
+
+                    <a th:href="@{/ventas/editar/{id}(id=${venta.codigoVenta})}"
+                       class="btn btn-edit">
+                        Editar
+                    </a>
+
+                    <form th:action="@{/ventas/eliminar/{id}(id=${venta.codigoVenta})}"
+                          method="post">
+                        <button class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </form>
+
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
-
 </div>
 
 </body>

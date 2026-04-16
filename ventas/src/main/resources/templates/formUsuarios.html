@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuario</title>
+    <link rel="stylesheet" th:href="@{/styles/forms.css}">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h2 th:text="${usuario.codigoUsuario != null} ?
+                     'Editar Usuario' :
+                     'Agregar Usuario'"></h2>
+
+        <form th:action="${usuario.codigoUsuario != null} ?
+                @{/usuarios/actualizar/{id}(id=${usuario.codigoUsuario})} :
+                @{/usuarios/guardar}"
+              th:object="${usuario}" method="post">
+
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" th:field="*{username}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Rol</label>
+                <input type="text" th:field="*{rol}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" th:field="*{pasword}"
+                       placeholder="Ingrese contraseña actual (o reemplacela por una nueva)">
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <select th:field="*{estado}" required>
+                    <option value="">-- Seleccionar --</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+
+            <button class="form-btn" type="submit"
+                    th:text="${usuario.codigoUsuario != null} ?
+                             'Actualizar' : 'Guardar'">
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

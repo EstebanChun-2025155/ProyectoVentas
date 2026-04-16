@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ClientesService {
     List<Clientes> listar();
     Clientes getClientesById(Integer id);

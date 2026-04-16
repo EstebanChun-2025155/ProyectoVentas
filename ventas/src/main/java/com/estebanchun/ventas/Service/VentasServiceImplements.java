@@ -19,21 +19,28 @@ public class VentasServiceImplements implements VentasService{
 
     @Override
     public Ventas getVentasById(Integer id) {
-        return null;
+        return repo.findById(id).orElseThrow(() -> new RuntimeException("Venta no encontrado"));
     }
 
     @Override
     public Ventas saveVentas(Ventas ventas) throws RuntimeException {
-        return null;
+        return repo.save(ventas);
     }
 
     @Override
     public Ventas updateVentas(Integer id, Ventas ventas) {
-        return null;
+        Ventas existente = repo.findById(id).orElseThrow(() -> new RuntimeException("Venta no encontrado"));
+
+        existente.setFechaVenta(ventas.getFechaVenta());
+        existente.setTotal(ventas.getTotal());
+        existente.setClientesDpiCliente(ventas.getClientesDpiCliente());
+        existente.setUsuarioCodigoUsuario(ventas.getUsuarioCodigoUsuario());
+
+        return repo.save(existente);
     }
 
     @Override
-    public void delteVentas(Integer id) {
-
+    public void eliminar(int id) {
+        repo.deleteById(id);
     }
 }

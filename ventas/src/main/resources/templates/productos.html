@@ -6,16 +6,14 @@
 </head>
 
 <body>
-
 <div class="navbar">
     <h2>Sistema de Ventas</h2>
 
     <div class="nav-actions">
         <a th:href="@{/home}">Home</a>
-        <a href="#">Agregar</a>
-        <a href="#">Eliminar</a>
-        <a href="#">Buscar</a>
-        <a href="#">Editar</a>
+        <a th:href="@{/productos/nuevo}">
+            Agregar
+        </a>
     </div>
 </div>
 
@@ -36,20 +34,36 @@
             <th>Precio</th>
             <th>Stock</th>
             <th>Estado</th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="producto  : ${productos}">
+        <tr th:each="producto : ${productos}">
             <td th:text="${producto.codigoProducto}"></td>
             <td th:text="${producto.nombreProducto}"></td>
             <td th:text="${producto.precio}"></td>
             <td th:text="${producto.stock}"></td>
             <td th:text="${producto.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
+            <td>
+                <div class="acciones">
+
+                    <a th:href="@{/productos/editar/{id}(id=${producto.codigoProducto})}"
+                       class="btn btn-edit">
+                        Editar
+                    </a>
+
+                    <form th:action="@{/productos/eliminar/{id}(id=${producto.codigoProducto})}"
+                          method="post">
+                        <button class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </form>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
-
 </div>
 
 </body>

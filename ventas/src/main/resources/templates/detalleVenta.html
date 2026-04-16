@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Clientes</title>
+    <title>Detalle de Ventas</title>
     <link rel="stylesheet" th:href="@{/styles/ventas.css}">
 </head>
 
 <body>
-
 <div class="navbar">
     <h2>Sistema de Ventas</h2>
 
     <div class="nav-actions">
         <a th:href="@{/home}">Home</a>
-        <a href="#">Agregar</a>
-        <a href="#">Eliminar</a>
-        <a href="#">Buscar</a>
-        <a href="#">Editar</a>
+        <a th:href="@{/detalleVenta/nuevo}">
+                Agregar
+        </a>
     </div>
 </div>
 
@@ -37,21 +35,37 @@
             <th>Subtotal</th>
             <th>Codigo Producto</th>
             <th>Codigo Venta</th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="item  : ${detalleVenta}">
+        <tr th:each="item : ${detalleVenta}">
             <td th:text="${item.codigoDetalleVenta}"></td>
             <td th:text="${item.cantidad}"></td>
             <td th:text="${item.precioUnitario}"></td>
             <td th:text="${item.subtotal}"></td>
             <td th:text="${item.productosCodigoProducto}"></td>
             <td th:text="${item.ventasCodigoVenta}"></td>
+            <td>
+                <div class="acciones">
+
+                    <a th:href="@{/detalleVenta/editar/{id}(id=${item.codigoDetalleVenta})}"
+                       class="btn btn-edit">
+                        Editar
+                    </a>
+
+                    <form th:action="@{/detalleVenta/eliminar/{id}(id=${item.codigoDetalleVenta})}"
+                          method="post">
+                        <button class="btn btn-danger">
+                            Eliminar
+                        </button>
+                    </form>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
-
 </div>
 
 </body>
